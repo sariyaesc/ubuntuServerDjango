@@ -1,7 +1,6 @@
-from django.shortcuts import render
-from django. http import HttpResponse
+from django.urls import path
+from . import views   # importa tu archivo views.py
 
-# Create your views here.
-
-def index(request):
-    return HttpResponse("Hello World!")
+urlpatterns = [
+    path('', views.index, name='index'),  # http://localhost:8000/hello/ mostrará "Hello World!"
+]
