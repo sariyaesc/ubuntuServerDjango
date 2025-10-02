@@ -20,10 +20,10 @@ def greet(request, name):
     return HttpResponse(f"<h1>Hola, {name}!</h1>")
 
 def saludo(request, nombre):
-    return render(request, "mi_primera_pagina/saludo.html", {"nombre": nombre.capitalize()})
+    return render(request, "mi_app/saludo.html", {"nombre": nombre.capitalize()})
 
 def index(request):
-    return render(request, "mi_primera_pagina/index.html")
+    return render(request, "mi_app/index.html")
 
 def about(request):
     return HttpResponse("<h1>About Page</h1><p>This is the about page of the site.</p>")
@@ -32,7 +32,7 @@ def sumar(request):
     num1 = 5
     num2 = 3
     resultado = num1 + num2
-    return render(request, 'mi_primera_pagina/sumar.html', {
+    return render(request, 'mi_app/sumar.html', {
         'num1': num1,
         'num2': num2,
         'resultado': resultado
@@ -57,3 +57,6 @@ def tasks_add(request):
 def tasks_admin_list(request):
     tasks = Task.objects.all().order_by("_created_at")
     return render(request, "mi_app/tasks_admin_list.html", {"tasks": tasks})
+
+def index2(request):
+    return render(request, "mi_app/index2.html")
