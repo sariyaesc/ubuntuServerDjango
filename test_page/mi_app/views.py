@@ -51,7 +51,7 @@ def tasks_add(request):
         if task_text:
             tasks.append(task_text)  # agregar a la lista global
         return HttpResponseRedirect(reverse("tasks_index"))
-    return render(request, "mi_app/task_add.html")
+    return render(request, "mi_app/tasks_add.html")
 
 
 def tasks_admin_list(request):
