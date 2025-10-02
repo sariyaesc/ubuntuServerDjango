@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from datetime import datetime
 from django.shortcuts import render
 from .models import Task
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 def index1(request):
     return HttpResponse("<h1>Hello World!</h1>")
@@ -35,3 +37,25 @@ def sumar(request):
         'num2': num2,
         'resultado': resultado
     })
+
+tasks=["foo","bar","baz"]
+
+def tasks_index (request):
+    return render(request,"mi_app/tasks_index.html",{
+        "tasks":tasks
+        })
+
+def tasks_add(request):
+    if request.method == "POST":
+        task=request.POST.get("task")
+        if task:
+            task.append(task)
+        return HttpResponseRedirect(reverse("tasks_index"))
+    return render (request,"mi_app/task_add.html")
+
+def tasks_admin_list(request):
+   tasks = Task.objects.all().order_by("_created_at")
+return render(request,"mi_app/task_admin_list.html",{"tasks":tasks})
+
+
+
