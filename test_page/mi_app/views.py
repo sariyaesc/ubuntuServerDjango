@@ -56,4 +56,4 @@ def tasks_add(request):
 
 def tasks_admin_list(request):
     tasks = Task.objects.all().order_by("_created_at")
-    return render(request, "mi_app/task_admin_list.html", {"tasks": tasks})
+    return render(request, "mi_app/tasks_admin_list.html", {"tasks": tasks})
