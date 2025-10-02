@@ -47,15 +47,13 @@ def tasks_index (request):
 
 def tasks_add(request):
     if request.method == "POST":
-        task=request.POST.get("task")
-        if task:
-            task.append(task)
+        task_text = request.POST.get("task")
+        if task_text:
+            tasks.append(task_text)  # agregar a la lista global
         return HttpResponseRedirect(reverse("tasks_index"))
-    return render (request,"mi_app/task_add.html")
+    return render(request, "mi_app/task_add.html")
+
 
 def tasks_admin_list(request):
-   tasks = Task.objects.all().order_by("_created_at")
-return render(request,"mi_app/task_admin_list.html",{"tasks":tasks})
-
-
-
+    tasks = Task.objects.all().order_by("_created_at")
+    return render(request, "mi_app/task_admin_list.html", {"tasks": tasks})
