@@ -13,6 +13,6 @@ urlpatterns = [
 
     path("tasks",views.tasks_index,name="tasks_index"),
     path("tasks/add",views.tasks_add,name="tasks_add"),
-    path("admin-tasks",views.task_admin_list,name="tasks_admin_list"),
+    path("admin-tasks",views.tasks_admin_list,name="tasks_admin_list"),
     path("menu",views.index2,name="index2")
 ]
