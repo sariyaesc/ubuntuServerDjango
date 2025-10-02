@@ -1,10 +1,12 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import path, include   
 
 urlpatterns = [
-    path("hello/", views.hello, name="hello"),
-    path("index2/", views.index2, name="index2"), 
-    path("tasks/", views.tasks_index, name="tasks_index"),
-    path("tasks/add/", views.tasks_add, name="tasks_add"),
-    path("tasks/admin/", views.tasks_admin_list, name="tasks_admin_list"),
+    path('admin/', admin.site.urls),
+    path('hello/', include("mi_app.urls")), 
+    path("index2/",include("mi_app.urls")),  
+    path("tasks/", include("mi_app.urls")),
+    path("tasks/add/", include("mi_app.urls")),
+    path("tasks/admin/",include("mi_app.urls"))
 ]
+ 
