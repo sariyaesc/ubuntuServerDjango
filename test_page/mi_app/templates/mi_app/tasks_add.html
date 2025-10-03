@@ -1,4 +1,4 @@
-{% extends "myapp/base.html"%}
+{% extends "mi_app/base.html"%}
 {% block content %}
 <h1 class="mb-4">Add Tasks</h1>
 <form action="{% url 'tasks_add' %}" method="post" class="mb-3">
@@ -8,6 +8,8 @@
     </div>
     <button type="submit" class="btn btn-primary">Add Task</button>
 </form>
-<a href="{% url 'tasks_index' %}" class="btn btn-secondary">View Tasks</a>
+<a href="{% url 'tasks_index' %}" class="list-group-item list-group-item-action">
+    Lista de tareas (en memoria)
+</a>
 
 {% endblock %}
