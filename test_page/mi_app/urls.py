@@ -9,10 +9,12 @@ urlpatterns = [
     path("greet/<str:name>/", views.greet, name='greet'),
     path("about/", views.about, name='about'),
     path("sumar/", views.sumar, name='sumar'),
-    path("<str:nombre>/", views.saludo, name='saludo'),  
+    
+    path("tasks/", views.tasks_index, name="tasks_index"),
+    path("tasks/add/", views.tasks_add, name="tasks_add"),
+    path("admin-tasks/", views.tasks_admin_list, name="tasks_admin_list"),
+    path("index2/", views.index2, name="index2"),
 
-    path("tasks",views.tasks_index,name="tasks_index"),
-    path("tasks/add",views.tasks_add,name="tasks_add"),
-    path("admin-tasks",views.tasks_admin_list,name="tasks_admin_list"),
-    path("menu",views.index2,name="index2")
+    # Esta debe ir al final para no capturar rutas fijas
+    path("<str:nombre>/", views.saludo, name='saludo'),  
 ]
