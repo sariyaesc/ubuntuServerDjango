@@ -1,7 +1,9 @@
+{% extends "mi_app/base.html" %}
+
 {% block content %}
 <h1 class="mb-4">Tasks menu</h1>
 <div class="list-group">
-    <a href="{% url 'index' %}" class="list-group-item list-group-item-action">
+    <a href="{% url 'tasks_index' %}" class="list-group-item list-group-item-action">
         Lista de tareas (en memoria)
     </a>
     <a href="{% url 'tasks_add' %}" class="list-group-item list-group-item-action">
@@ -14,5 +16,4 @@
         Ir a panel de administración
     </a>
 </div>
-
 {% endblock %}
